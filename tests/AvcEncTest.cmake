@@ -10,11 +10,11 @@ ExternalProject_Add(googletest
 
 list(
   APPEND
-  AVCENCODERTEST_SRCS
-  "${AVC_ROOT}/tests/AvcEncoderTest.cpp")
+  AVCENCTEST_SRCS
+  "${AVC_ROOT}/tests/AvcEncTest.cpp")
 
-libavc_add_executable(AvcEncoderTest libavcenc SOURCES ${AVCENCODERTEST_SRCS})
-target_link_libraries(AvcEncoderTest
+libavc_add_executable(AvcEncTest libavcenc SOURCES ${AVCENCTEST_SRCS})
+target_link_libraries(AvcEncTest
     ${AVC_ROOT}/third_party/build/googletest/src/googletest-build/lib/libgtest.a
     ${AVC_ROOT}/third_party/build/googletest/src/googletest-build/lib/libgtest_main.a
 )
