@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-#include <utils/Log.h>
-
 #include "ih264_defs.h"
 #include "ih264_typedefs.h"
 #include "ih264e.h"
@@ -26,8 +24,6 @@
 #define MAX_FRAME_HEIGHT 1080
 #define MAX_FRAME_WIDTH 1920
 #define MAX_OUTPUT_BUFFER_SIZE (MAX_FRAME_HEIGHT * MAX_FRAME_WIDTH)
-
-#define ENCODED_FILE "/data/local/tmp/AvcOutput"
 
 #define ive_api_function ih264e_api_function
 
@@ -136,6 +132,7 @@ class AvcEncoderTest
         mFrameHeight = get<2>(params);
         mFrameRate = get<3>(params);
         mBitRate = get<4>(params);
+        mOutFileName = gEnv->getRes() + "out.bin";
 
         ASSERT_LE(mFrameWidth, 1080) << "Frame Width <= 1080";
 
@@ -153,8 +150,8 @@ class AvcEncoderTest
         mFpInput = fopen(mFileName.c_str(), "rb");
         ASSERT_NE(mFpInput, nullptr) << "Failed to open the input file: " << mFileName;
 
-        mFpOutput = fopen(ENCODED_FILE, "wb");
-        ASSERT_NE(mFpOutput, nullptr) << "Failed to open the output file:" << ENCODED_FILE;
+        mFpOutput = fopen(mOutFileName.c_str(), "wb");
+        ASSERT_NE(mFpOutput, nullptr) << "Failed to open the output file:" << mOutFileName;
 
         /* Getting Number of MemRecords */
         iv_num_mem_rec_ip_t sNumMemRecIp = {};
@@ -316,6 +313,7 @@ class AvcEncoderTest
     int32_t mBitRate = 256000;
     int64_t mOutputBufferSize = MAX_OUTPUT_BUFFER_SIZE;
     string mFileName;
+    string mOutFileName;
     uint8_t* mInputBuffer = nullptr;
     uint8_t* mOutputBuffer = nullptr;
     FILE* mFpInput = nullptr;
@@ -897,7 +895,7 @@ void AvcEncoderTest::encodeFrames(int64_t numFramesToEncode) {
 
         int32_t numOutputBytes = fwrite((UWORD8*)sEncodeOp->s_out_buf.pv_buf, sizeof(UWORD8),
                                         sEncodeOp->s_out_buf.u4_bytes, mFpOutput);
-        ASSERT_NE(numOutputBytes, 0) << "Failed to write the output!" << ENCODED_FILE;
+        ASSERT_NE(numOutputBytes, 0) << "Failed to write the output!" << mOutFileName;
 
         numFramesToEncode--;
         numFrame++;
@@ -914,7 +912,7 @@ void AvcEncoderTest::encodeFrames(int64_t numFramesToEncode) {
     if (sEncodeOp->output_present) {
         int32_t numOutputBytes = fwrite((UWORD8*)sEncodeOp->s_out_buf.pv_buf, sizeof(UWORD8),
                                         sEncodeOp->s_out_buf.u4_bytes, mFpOutput);
-        ASSERT_NE(numOutputBytes, 0) << "Failed to write the output!" << ENCODED_FILE;
+        ASSERT_NE(numOutputBytes, 0) << "Failed to write the output!" << mOutFileName;
     }
 }
 
@@ -1006,7 +1004,6 @@ int32_t main(int argc, char** argv) {
     uint8_t status = gEnv->initFromOptions(argc, argv);
     if (status == 0) {
         status = RUN_ALL_TESTS();
-        ALOGI("Encoder Test Result = %d\n", status);
     }
     return status;
 }
