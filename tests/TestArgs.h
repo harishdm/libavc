@@ -14,59 +14,53 @@
  * limitations under the License.
  */
 
-#ifndef __AVC_ENCODER_TEST_ENVIRONMENT_H__
-#define __AVC_ENCODER_TEST_ENVIRONMENT_H__
-
-#include <gtest/gtest.h>
+#pragma once
 #include <getopt.h>
+#include <gtest/gtest.h>
 
-using namespace std;
-
-class TestArgs : public::testing::Environment {
+class TestArgs : public ::testing::Environment {
   public:
-    TestArgs() : res("/data/local/tmp/AvcEncTestRes/") {}
+    TestArgs() : mPath("/data/local/tmp/AvcTestRes/") {}
 
     // Parses the command line arguments
-    int initFromOptions(int argc, char **argv);
+    int initFromOptions(int argc, char **argv) {
+        static struct option options[] = {{"path", required_argument, 0, 'P'}, {0, 0, 0, 0}};
 
-    void setRes(const char *_res) { res = _res; }
+        while (true) {
+            int index = 0;
+            int c = getopt_long(argc, argv, "P:", options, &index);
+            if (c == -1) {
+                break;
+            }
 
-    const string getRes() const { return res; }
-
-  private:
-    string res;
-};
-
-int TestArgs::initFromOptions(int argc, char **argv) {
-    static struct option options[] = {{"path", required_argument, 0, 'P'}, {0, 0, 0, 0}};
-
-    while (true) {
-        int index = 0;
-        int c = getopt_long(argc, argv, "P:", options, &index);
-        if (c == -1) {
-            break;
-        }
-
-        switch (c) {
+            switch (c) {
             case 'P': {
-                setRes(optarg);
+                setPath(optarg);
                 break;
             }
             default:
                 break;
+            }
         }
+
+        if (optind < argc) {
+            fprintf(stderr,
+                    "unrecognized option: %s\n\n"
+                    "usage: %s <gtest options> <test options>\n\n"
+                    "test options are:\n\n"
+                    "-P, --path: Path for test files\n",
+                    argv[optind ?: 1], argv[0]);
+            return 2;
+        }
+        return 0;
     }
 
-    if (optind < argc) {
-        fprintf(stderr,
-                "unrecognized option: %s\n\n"
-                "usage: %s <gtest options> <test options>\n\n"
-                "test options are:\n\n"
-                "-P, --path: Resource files directory location\n",
-                argv[optind ?: 1], argv[0]);
-        return 2;
-    }
-    return 0;
-}
+    void setPath(const char *_path) { mPath = _path; }
 
-#endif  // __AVC_ENCODER_TEST_ENVIRONMENT_H__
+    const std::string getPath() const { return mPath; }
+
+  private:
+    std::string mPath;
+};
+
+extern TestArgs *gArgs;

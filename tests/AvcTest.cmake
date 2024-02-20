@@ -10,15 +10,22 @@ ExternalProject_Add(googletest
 
 list(
   APPEND
-  AVCENCTEST_SRCS
-  "${AVC_ROOT}/tests/AvcEncTest.cpp")
+  AVCTEST_SRCS
+  "${AVC_ROOT}/tests/TestMain.cpp"
+  "${AVC_ROOT}/tests/EncTest.cpp"
+  "${AVC_ROOT}/tests/DecTest.cpp"
+  "${AVC_ROOT}/tests/EncHelper.cpp"
+  "${AVC_ROOT}/tests/DecHelper.cpp"
+  "${AVC_ROOT}/tests/Md5Wrapper.cpp")
 
-libavc_add_executable(AvcEncTest libavcenc
-    SOURCES ${AVCENCTEST_SRCS}
+libavc_add_executable(AvcTest libavcenc libavcdec
+    SOURCES ${AVCTEST_SRCS}
     INCLUDES "${AVC_ROOT}/third_party/googletest/googletest/include")
-
-target_link_libraries(AvcEncTest
+target_link_libraries(AvcTest
+    libavcenc
+    libavcdec
+    crypto # for md5
     ${AVC_ROOT}/third_party/build/googletest/src/googletest-build/lib/libgtest.a
     ${AVC_ROOT}/third_party/build/googletest/src/googletest-build/lib/libgtest_main.a)
 
-add_dependencies(AvcEncTest googletest)
+add_dependencies(AvcTest googletest)

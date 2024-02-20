@@ -24,19 +24,28 @@ package {
 }
 
 cc_test {
-    name: "AvcEncTest",
+    name: "AvcTest",
     gtest: true,
     test_suites: ["device-tests"],
 
-    srcs: ["AvcEncTest.cpp"],
+    srcs: [
+        "TestMain.cpp",
+        "DecTest.cpp",
+        "EncTest.cpp",
+        "DecHelper.cpp",
+        "EncHelper.cpp",
+        "Md5Wrapper.cpp",
+    ],
 
     shared_libs: [
         "libutils",
         "liblog",
+        "libcrypto", // For md5
     ],
 
     static_libs: [
         "libavcenc",
+        "libavcdec",
     ],
 
     cflags: [

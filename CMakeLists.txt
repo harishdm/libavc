@@ -70,5 +70,5 @@ if (${ENABLE_SVC})
 endif()
 
 if (${ENABLE_TESTS})
-    include("${AVC_ROOT}/tests/AvcEncTest.cmake")
+    include("${AVC_ROOT}/tests/AvcTest.cmake")
 endif()

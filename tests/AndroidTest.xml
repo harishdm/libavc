@@ -14,24 +14,24 @@
      limitations under the License.
 -->
 <configuration description="Test module config for AVC encoder unit tests">
-    <option name="test-suite-tag" value="AvcEncTest" />
+    <option name="test-suite-tag" value="AvcTest" />
     <target_preparer class="com.android.tradefed.targetprep.PushFilePreparer">
         <option name="cleanup" value="true" />
-        <option name="push" value="AvcEncTest->/data/local/tmp/AvcEncTest/" />
+        <option name="push" value="AvcTest->/data/local/tmp/AvcTest/" />
     </target_preparer>
     <target_preparer class="com.android.compatibility.common.tradefed.targetprep.DynamicConfigPusher">
         <option name="target" value="host" />
-        <option name="config-filename" value="AvcEncTest" />
+        <option name="config-filename" value="AvcTest" />
         <option name="version" value="1.0"/>
     </target_preparer>
     <target_preparer class="com.android.compatibility.common.tradefed.targetprep.MediaPreparer">
         <option name="push-all" value="true" />
         <option name="media-folder-name" value="AvcTestRes-1.0"/>
-        <option name="dynamic-config-module" value="AvcEncTest" />
+        <option name="dynamic-config-module" value="AvcTest" />
     </target_preparer>
     <test class="com.android.tradefed.testtype.GTest" >
         <option name="native-test-device-path" value="/data/local/tmp" />
-        <option name="module-name" value="AvcEncTest" />
+        <option name="module-name" value="AvcTest" />
         <option name="native-test-flag" value="-P /sdcard/test/AvcTestRes-1.0/" />
     </test>
 </configuration>
