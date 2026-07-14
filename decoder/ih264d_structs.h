@@ -494,7 +494,7 @@ typedef struct
     WORD32 i4_delta_pic_order_cnt[2];
     WORD32 i4_poc; /** Pic order cnt of picture to which slice belongs*/
     UWORD32 u4_idr_pic_id; /** IDR pic ID */
-    UWORD16 u2_first_mb_in_slice; /** Address of first MB in slice*/
+    UWORD32 u2_first_mb_in_slice; /** Address of first MB in slice*/
     UWORD16 u2_frame_num; /** Frame number from prev IDR pic */
 
     UWORD8 u1_mbaff_frame_flag; /** Mb adaptive frame field u4_flag */
@@ -995,10 +995,10 @@ typedef struct _DecStruct
 
     WORD32 (*pf_parse_inter_slice)(struct _DecStruct * ps_dec,
                                    dec_slice_params_t * ps_slice,
-                                   UWORD16 u2_first_mb_in_slice);
+                                   UWORD32 u2_first_mb_in_slice);
 
     UWORD32 (*pf_get_mb_info)(struct _DecStruct * ps_dec,
-                              const UWORD16 u2_cur_mb_address,
+                              const UWORD32 u2_cur_mb_address,
                               dec_mb_info_t * ps_cur_mb_info,
                               UWORD32 u4_mbskip_run);
 
@@ -1290,7 +1290,7 @@ typedef struct _DecStruct
     UWORD32 u4_bs_cur_slice_num_mbs;
     UWORD32 u4_cur_deblk_mb_num;
     UWORD32 u4_sps_cnt_in_process;
-    volatile UWORD16 u2_cur_slice_num_bs;
+    volatile UWORD32 u2_cur_slice_num_bs;
 
     UWORD32 u4_deblk_mb_x;
     UWORD32 u4_deblk_mb_y;
@@ -1307,8 +1307,8 @@ typedef struct _DecStruct
     volatile UWORD32 cur_dec_mb_num;
     volatile UWORD32 cur_recon_mb_num;
     volatile UWORD32 u4_cur_mb_addr;
-    WORD16 i2_dec_thread_mb_y;
-    WORD16 i2_recon_thread_mb_y;
+    WORD32 i2_dec_thread_mb_y;
+    WORD32 i2_recon_thread_mb_y;
 
     UWORD8 u1_separate_parse;
     UWORD32 u4_dec_thread_created;

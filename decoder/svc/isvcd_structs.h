@@ -520,14 +520,14 @@ typedef struct _SvcDecLyrStruct
      dec_svc_mb_info_t *ps_svc_cur_mb_info, UWORD32 u4_mb_num, UWORD32 u4_num_mbsNby2);
 
     WORD32(*pf_parse_inter_slice_svc_ext)
-    (struct _SvcDecLyrStruct *ps_dec, dec_slice_params_t *ps_slice, UWORD16 u2_first_mb_in_slice);
+    (struct _SvcDecLyrStruct *ps_dec, dec_slice_params_t *ps_slice, UWORD32 u2_first_mb_in_slice);
 
     /**
      * Function pointers to parse inter slice data
      */
 
     WORD32(*pf_parse_svc_inter_slice)
-    (struct _SvcDecLyrStruct *ps_dec, dec_slice_params_t *ps_slice, UWORD16 u2_first_mb_in_slice);
+    (struct _SvcDecLyrStruct *ps_dec, dec_slice_params_t *ps_slice, UWORD32 u2_first_mb_in_slice);
 
     /* inter layer precition buffers */
 

@@ -104,7 +104,7 @@ void isvcd_init_cabac_contexts(UWORD8 u1_slice_type, dec_struct_t *ps_dec);
 /*                                                                           */
 /*****************************************************************************/
 WORD32 isvcd_parse_islice_data_cabac(svc_dec_lyr_struct_t *ps_svc_lyr_dec,
-                                     dec_slice_params_t *ps_slice, UWORD16 u2_first_mb_in_slice)
+                                     dec_slice_params_t *ps_slice, UWORD32 u2_first_mb_in_slice)
 {
     UWORD8 uc_more_data_flag;
     UWORD32 u4_num_mbs, u4_mb_idx;
@@ -318,7 +318,7 @@ WORD32 isvcd_parse_islice_data_cabac(svc_dec_lyr_struct_t *ps_svc_lyr_dec,
 /*****************************************************************************/
 
 WORD32 isvcd_parse_islice_data_cavlc(svc_dec_lyr_struct_t *ps_svc_lyr_dec,
-                                     dec_slice_params_t *ps_slice, UWORD16 u2_first_mb_in_slice)
+                                     dec_slice_params_t *ps_slice, UWORD32 u2_first_mb_in_slice)
 {
     UWORD8 uc_more_data_flag;
     UWORD32 u4_num_mbs, u4_mb_idx;
@@ -973,7 +973,7 @@ WORD32 isvcd_parse_imb_cavlc(svc_dec_lyr_struct_t *ps_svc_lyr_dec, dec_mb_info_t
 *    0 on Success and Error code otherwise
 **************************************************************************
 */
-WORD32 isvcd_parse_eislice(svc_dec_lyr_struct_t *ps_svc_lyr_dec, UWORD16 u2_first_mb_in_slice)
+WORD32 isvcd_parse_eislice(svc_dec_lyr_struct_t *ps_svc_lyr_dec, UWORD32 u2_first_mb_in_slice)
 {
     dec_struct_t *ps_dec = &ps_svc_lyr_dec->s_dec;
     WORD32 i_status = OK;
@@ -1193,7 +1193,7 @@ WORD32 isvcd_parse_eislice(svc_dec_lyr_struct_t *ps_svc_lyr_dec, UWORD16 u2_firs
 /*                                                                           */
 /*****************************************************************************/
 WORD32 isvcd_parse_eislice_data_cabac(svc_dec_lyr_struct_t *ps_svc_lyr_dec,
-                                      dec_slice_params_t *ps_slice, UWORD16 u2_first_mb_in_slice)
+                                      dec_slice_params_t *ps_slice, UWORD32 u2_first_mb_in_slice)
 {
     dec_struct_t *ps_dec = &ps_svc_lyr_dec->s_dec;
     UWORD8 uc_more_data_flag;
@@ -1203,7 +1203,7 @@ WORD32 isvcd_parse_eislice_data_cabac(svc_dec_lyr_struct_t *ps_svc_lyr_dec,
     deblk_mb_t *ps_cur_deblk_mb;
     dec_bit_stream_t *const ps_bitstrm = ps_dec->ps_bitstrm;
     UWORD16 i2_pic_wdin_mbs = ps_dec->u2_frm_wd_in_mbs;
-    WORD16 i2_cur_mb_addr;
+    WORD32 i2_cur_mb_addr;
     UWORD8 u1_mbaff;
     UWORD8 u1_num_mbs_next, u1_end_of_row, u1_tfr_n_mb;
     WORD32 ret = OK;
@@ -1459,7 +1459,7 @@ WORD32 isvcd_parse_eislice_data_cabac(svc_dec_lyr_struct_t *ps_svc_lyr_dec,
 /*                                                                           */
 /*****************************************************************************/
 WORD32 isvcd_parse_eislice_data_cavlc(svc_dec_lyr_struct_t *ps_svc_lyr_dec,
-                                      dec_slice_params_t *ps_slice, UWORD16 u2_first_mb_in_slice)
+                                      dec_slice_params_t *ps_slice, UWORD32 u2_first_mb_in_slice)
 {
     dec_struct_t *ps_dec = &ps_svc_lyr_dec->s_dec;
     UWORD8 uc_more_data_flag;
@@ -1471,7 +1471,7 @@ WORD32 isvcd_parse_eislice_data_cavlc(svc_dec_lyr_struct_t *ps_svc_lyr_dec,
     UWORD32 *pu4_bitstrm_ofst = &ps_bitstrm->u4_ofst;
     UWORD32 *pu4_bitstrm_buf = ps_bitstrm->pu4_buffer;
     UWORD16 i2_pic_wdin_mbs = ps_dec->u2_frm_wd_in_mbs;
-    WORD16 i2_cur_mb_addr;
+    WORD32 i2_cur_mb_addr;
     UWORD8 u1_mbaff;
     UWORD8 u1_num_mbs_next, u1_end_of_row, u1_tfr_n_mb;
     WORD32 ret = OK;
@@ -1961,7 +1961,7 @@ WORD32 isvcd_parse_imb_cabac(svc_dec_lyr_struct_t *ps_svc_lyr_dec, dec_mb_info_t
 *    0 on Success and Error code otherwise
 **************************************************************************
 */
-WORD32 isvcd_parse_islice(svc_dec_lyr_struct_t *ps_svc_lyr_dec, UWORD16 u2_first_mb_in_slice)
+WORD32 isvcd_parse_islice(svc_dec_lyr_struct_t *ps_svc_lyr_dec, UWORD32 u2_first_mb_in_slice)
 {
     dec_struct_t *ps_dec = &ps_svc_lyr_dec->s_dec;
     dec_pic_params_t *ps_pps = ps_dec->ps_cur_pps;

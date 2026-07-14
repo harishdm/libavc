@@ -441,7 +441,7 @@ WORD32 ih264d_decode_slice_thread(dec_struct_t *ps_dec)
     const UWORD32 i2_pic_wdin_mbs = ps_dec->u2_frm_wd_in_mbs;
     UWORD32 u4_mbaff, u4_num_mbs;
 
-    UWORD16 u2_first_mb_in_slice;
+    UWORD32 u2_first_mb_in_slice;
     UWORD16 i16_mb_x, i16_mb_y;
     UWORD8 u1_field_pic;
     UWORD32 u4_frame_stride, x_offset, y_offset;

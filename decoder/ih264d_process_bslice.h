@@ -39,7 +39,7 @@
 #include "ih264_platform_macros.h"
 #include "ih264d_structs.h"
 WORD32 ih264d_parse_bslice(dec_struct_t * ps_dec,
-                            UWORD16 u2_first_mb_in_slice);
+                            UWORD32 u2_first_mb_in_slice);
 WORD32 ih264d_decode_spatial_direct(dec_struct_t * ps_dec,
                                     UWORD8 u1_wd_x,
                                     dec_mb_info_t * ps_cur_mb_info,
@@ -50,10 +50,10 @@ WORD32 ih264d_decode_temporal_direct(dec_struct_t * ps_dec,
                                      UWORD32 u4_mb_num);
 WORD32 parseBSliceData(dec_struct_t * ps_dec,
                        dec_slice_params_t * ps_slice,
-                       UWORD16 u2_first_mb_in_slice);
+                       UWORD32 u2_first_mb_in_slice);
 WORD32 parseBSliceData(dec_struct_t * ps_dec,
                        dec_slice_params_t * ps_slice,
-                       UWORD16 u2_first_mb_in_slice);
+                       UWORD32 u2_first_mb_in_slice);
 
 void ih264d_init_ref_idx_lx_b(dec_struct_t *ps_dec);
 

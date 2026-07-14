@@ -1347,7 +1347,7 @@ void ih264d_get_implicit_weights(dec_struct_t *ps_dec)
  *    0 on Success and Error code otherwise
  **************************************************************************
  */
-WORD32 ih264d_parse_bslice(dec_struct_t * ps_dec, UWORD16 u2_first_mb_in_slice)
+WORD32 ih264d_parse_bslice(dec_struct_t * ps_dec, UWORD32 u2_first_mb_in_slice)
 {
     dec_pic_params_t * ps_pps = ps_dec->ps_cur_pps;
     dec_slice_params_t * ps_slice = ps_dec->ps_cur_slice;

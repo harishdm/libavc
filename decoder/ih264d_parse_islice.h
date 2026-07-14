@@ -58,10 +58,10 @@ WORD32 ih264d_parse_imb_cabac(dec_struct_t * ps_dec,
 
 WORD32 ih264d_parse_islice_data_cavlc(dec_struct_t * ps_dec,
                                       dec_slice_params_t * ps_slice,
-                                      UWORD16 u2_first_mb_in_slice);
+                                      UWORD32 u2_first_mb_in_slice);
 WORD32 ih264d_parse_islice_data_cabac(dec_struct_t * ps_dec,
                                       dec_slice_params_t * ps_slice,
-                                      UWORD16 u2_first_mb_in_slice);
+                                      UWORD32 u2_first_mb_in_slice);
 WORD32 ih264d_parse_pmb_cavlc(dec_struct_t * ps_dec,
                               dec_mb_info_t * ps_cur_mb_info,
                               UWORD32 u4_mb_num,
@@ -93,11 +93,11 @@ WORD32 ih264d_parse_bmb_cabac(dec_struct_t * ps_dec,
 
 WORD32 ih264d_parse_inter_slice_data_cavlc(dec_struct_t * ps_dec,
                                            dec_slice_params_t * ps_slice,
-                                           UWORD16 u2_first_mb_in_slice);
+                                           UWORD32 u2_first_mb_in_slice);
 
 WORD32 ih264d_parse_inter_slice_data_cabac(dec_struct_t * ps_dec,
                                            dec_slice_params_t * ps_slice,
-                                           UWORD16 u2_first_mb_in_slice);
+                                           UWORD32 u2_first_mb_in_slice);
 
 WORD32 ParseBMb(dec_struct_t * ps_dec,
                 dec_mb_info_t * ps_cur_mb_info,
@@ -108,6 +108,6 @@ WORD32 ih264d_parse_ipcm_mb(dec_struct_t * ps_dec,
                             dec_mb_info_t *ps_cur_mb_info,
                             UWORD32 u4_mbNum);
 WORD32 ih264d_parse_islice(dec_struct_t *ps_dec,
-                            UWORD16 u2_first_mb_in_slice);
+                            UWORD32 u2_first_mb_in_slice);
 
 #endif  /* _IH264D_PARSE_ISLICE_H_ */

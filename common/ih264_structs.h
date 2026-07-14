@@ -1287,7 +1287,7 @@ typedef struct
     /*
      *  first_mb_in_slice
      */
-    UWORD16   u2_first_mb_in_slice;
+    UWORD32 u2_first_mb_in_slice;
 
     /*
      *  slice_type

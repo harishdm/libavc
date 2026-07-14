@@ -86,7 +86,7 @@
 /*         06 09 2021   Kishore         Draft                                */
 /*                                                                           */
 /*****************************************************************************/
-UWORD32 isvcd_get_mb_info_cabac_nonmbaff(dec_struct_t *ps_dec, const UWORD16 u2_cur_mb_address,
+UWORD32 isvcd_get_mb_info_cabac_nonmbaff(dec_struct_t *ps_dec, const UWORD32 u2_cur_mb_address,
                                          dec_mb_info_t *ps_cur_mb_info, UWORD32 u4_mbskip)
 {
     WORD32 mb_x;
@@ -266,7 +266,7 @@ UWORD32 isvcd_get_mb_info_cabac_nonmbaff(dec_struct_t *ps_dec, const UWORD16 u2_
 /*                                                                           */
 /*****************************************************************************/
 
-UWORD32 isvcd_get_mb_info_cavlc_nonmbaff(dec_struct_t *ps_dec, const UWORD16 u2_cur_mb_address,
+UWORD32 isvcd_get_mb_info_cavlc_nonmbaff(dec_struct_t *ps_dec, const UWORD32 u2_cur_mb_address,
                                          dec_mb_info_t *ps_cur_mb_info, UWORD32 u4_mbskip_run)
 {
     WORD32 mb_x;

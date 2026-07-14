@@ -1427,7 +1427,7 @@ WORD32 isvcd_parse_bmb_non_direct_cavlc(svc_dec_lyr_struct_t *ps_svc_lyr_dec,
 *    0 on Success and Error code otherwise
 **************************************************************************
 */
-WORD32 isvcd_parse_ebslice(svc_dec_lyr_struct_t *ps_svc_lyr_dec, UWORD16 u2_first_mb_in_slice)
+WORD32 isvcd_parse_ebslice(svc_dec_lyr_struct_t *ps_svc_lyr_dec, UWORD32 u2_first_mb_in_slice)
 {
     dec_struct_t *ps_dec = &ps_svc_lyr_dec->s_dec;
     WORD32 i_status = OK;
@@ -1849,7 +1849,7 @@ WORD32 isvcd_parse_ebslice(svc_dec_lyr_struct_t *ps_svc_lyr_dec, UWORD16 u2_firs
 *    0 on Success and Error code otherwise
 **************************************************************************
 */
-WORD32 isvcd_parse_bslice(svc_dec_lyr_struct_t *ps_svc_lyr_dec, UWORD16 u2_first_mb_in_slice)
+WORD32 isvcd_parse_bslice(svc_dec_lyr_struct_t *ps_svc_lyr_dec, UWORD32 u2_first_mb_in_slice)
 {
     dec_struct_t *ps_dec = &ps_svc_lyr_dec->s_dec;
     dec_pic_params_t *ps_pps = ps_dec->ps_cur_pps;

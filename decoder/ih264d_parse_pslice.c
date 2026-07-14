@@ -802,7 +802,7 @@ void ih264d_update_nnz_for_skipmb(dec_struct_t * ps_dec,
 /*****************************************************************************/
 WORD32 ih264d_parse_inter_slice_data_cabac(dec_struct_t * ps_dec,
                                            dec_slice_params_t * ps_slice,
-                                           UWORD16 u2_first_mb_in_slice)
+                                           UWORD32 u2_first_mb_in_slice)
 {
     UWORD32 uc_more_data_flag;
     WORD32 i2_cur_mb_addr;
@@ -1133,7 +1133,7 @@ WORD32 ih264d_parse_inter_slice_data_cabac(dec_struct_t * ps_dec,
 
 WORD32 ih264d_parse_inter_slice_data_cavlc(dec_struct_t * ps_dec,
                                            dec_slice_params_t * ps_slice,
-                                           UWORD16 u2_first_mb_in_slice)
+                                           UWORD32 u2_first_mb_in_slice)
 {
     UWORD32 uc_more_data_flag;
     WORD32 i2_cur_mb_addr;
@@ -1958,7 +1958,7 @@ WORD32 ih264d_mark_err_slice_skip(dec_struct_t * ps_dec,
  *    0 on Success and Error code otherwise
  **************************************************************************
  */
-WORD32 ih264d_parse_pslice(dec_struct_t *ps_dec, UWORD16 u2_first_mb_in_slice)
+WORD32 ih264d_parse_pslice(dec_struct_t *ps_dec, UWORD32 u2_first_mb_in_slice)
 {
     dec_pic_params_t * ps_pps = ps_dec->ps_cur_pps;
     dec_slice_params_t * ps_cur_slice = ps_dec->ps_cur_slice;

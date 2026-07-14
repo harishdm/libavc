@@ -39,13 +39,13 @@
 #include "ih264_platform_macros.h"
 #include "ih264d_structs.h"
 WORD32 ih264d_parse_pslice(dec_struct_t *ps_dec,
-                            UWORD16 u2_first_mb_in_slice);
+                            UWORD32 u2_first_mb_in_slice);
 WORD32 ih264d_parse_pred_weight_table(dec_slice_params_t * ps_cur_slice,
                                     dec_bit_stream_t * ps_bitstrm);
 
 WORD32 parsePSliceData(dec_struct_t * ps_dec,
                        dec_slice_params_t * ps_slice,
-                       UWORD16 u2_first_mb_in_slice);
+                       UWORD32 u2_first_mb_in_slice);
 
 WORD32 ih264d_process_inter_mb(dec_struct_t * ps_dec,
                                dec_mb_info_t * ps_cur_mb_info,

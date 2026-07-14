@@ -1233,7 +1233,7 @@ static WORD32 imvcd_corrupted_slice_handler(mvc_dec_ctxt_t *ps_mvcd_ctxt)
     bool b_decode_nmb;
     UWORD8 u1_inter_mb_type;
     UWORD8 u1_deblk_mb_type;
-    UWORD16 i2_cur_mb_addr;
+    UWORD32 i2_cur_mb_addr;
     UWORD32 u4_mb_skip_run;
     WORD32 i, j;
 

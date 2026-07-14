@@ -42,7 +42,7 @@
 #include "ih264_platform_macros.h"
 #include "isvcd_structs.h"
 
-WORD32 isvcd_parse_epslice(svc_dec_lyr_struct_t *ps_svc_lyr_dec, UWORD16 u2_first_mb_in_slice);
+WORD32 isvcd_parse_epslice(svc_dec_lyr_struct_t *ps_svc_lyr_dec, UWORD32 u2_first_mb_in_slice);
 
 WORD32 isvcd_parse_pmb_cabac(svc_dec_lyr_struct_t *ps_svc_lyr_dec, dec_mb_info_t *ps_cur_mb_info,
                              dec_svc_mb_info_t *ps_svc_cur_mb_info, UWORD32 u4_mb_num,

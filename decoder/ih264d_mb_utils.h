@@ -251,21 +251,21 @@
         ((mb_x << u1_mbaff) + (1 - u1_topmb) + (mb_y * frmWidthInMbs))
 
 UWORD32 ih264d_get_mb_info_cavlc_mbaff(dec_struct_t * ps_dec,
-                                       const UWORD16 ui16_curMbAddress,
+                                       const UWORD32 ui16_curMbAddress,
                                        dec_mb_info_t * ps_cur_mb_info,
                                        UWORD32 u4_mbskip_run);
 UWORD32 ih264d_get_mb_info_cavlc_nonmbaff(dec_struct_t * ps_dec,
-                                          const UWORD16 ui16_curMbAddress,
+                                          const UWORD32 ui16_curMbAddress,
                                           dec_mb_info_t * ps_cur_mb_info,
                                           UWORD32 u4_mbskip_run);
 
 UWORD32 ih264d_get_mb_info_cabac_mbaff(dec_struct_t * ps_dec,
-                                       const UWORD16 ui16_curMbAddress,
+                                       const UWORD32 ui16_curMbAddress,
                                        dec_mb_info_t * ps_cur_mb_info,
                                        UWORD32 u4_mbskip_run);
 
 UWORD32 ih264d_get_mb_info_cabac_nonmbaff(dec_struct_t * ps_dec,
-                                          const UWORD16 ui16_curMbAddress,
+                                          const UWORD32 ui16_curMbAddress,
                                           dec_mb_info_t * ps_cur_mb_info,
                                           UWORD32 u4_mbskip_run);
 

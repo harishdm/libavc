@@ -1066,7 +1066,7 @@ WORD32 ih264d_parse_decode_slice(UWORD8 u1_is_idr_slice,
     pocstruct_t s_tmp_poc = {0};
     WORD32 i_delta_poc[2];
     WORD32 i4_poc = 0;
-    UWORD16 u2_first_mb_in_slice, u2_frame_num;
+    UWORD32 u2_first_mb_in_slice, u2_frame_num;
     UWORD8 u1_field_pic_flag, u1_redundant_pic_cnt = 0, u1_slice_type;
     UWORD32 u4_idr_pic_id = 0;
     UWORD8 u1_bottom_field_flag, u1_pic_order_cnt_type;

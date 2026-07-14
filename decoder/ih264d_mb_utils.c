@@ -79,7 +79,7 @@
 /*****************************************************************************/
 
 UWORD32 ih264d_get_mb_info_cavlc_nonmbaff(dec_struct_t *ps_dec,
-                                          const UWORD16 u2_cur_mb_address,
+                                          const UWORD32 u2_cur_mb_address,
                                           dec_mb_info_t * ps_cur_mb_info,
                                           UWORD32 u4_mbskip_run)
 {
@@ -209,7 +209,7 @@ UWORD32 ih264d_get_mb_info_cavlc_nonmbaff(dec_struct_t *ps_dec,
 /*****************************************************************************/
 
 UWORD32 ih264d_get_mb_info_cavlc_mbaff(dec_struct_t *ps_dec,
-                                       const UWORD16 u2_cur_mb_address,
+                                       const UWORD32 u2_cur_mb_address,
                                        dec_mb_info_t * ps_cur_mb_info,
                                        UWORD32 u4_mbskip_run)
 {
@@ -361,7 +361,7 @@ UWORD32 ih264d_get_mb_info_cavlc_mbaff(dec_struct_t *ps_dec,
 /*                                                                           */
 /*****************************************************************************/
 UWORD32 ih264d_get_mb_info_cabac_nonmbaff(dec_struct_t *ps_dec,
-                                          const UWORD16 u2_cur_mb_address,
+                                          const UWORD32 u2_cur_mb_address,
                                           dec_mb_info_t * ps_cur_mb_info,
                                           UWORD32 u4_mbskip)
 {
@@ -543,7 +543,7 @@ UWORD32 ih264d_get_mb_info_cabac_nonmbaff(dec_struct_t *ps_dec,
 /*****************************************************************************/
 
 UWORD32 ih264d_get_mb_info_cabac_mbaff(dec_struct_t *ps_dec,
-                                       const UWORD16 u2_cur_mb_address,
+                                       const UWORD32 u2_cur_mb_address,
                                        dec_mb_info_t * ps_cur_mb_info,
                                        UWORD32 u4_mbskip)
 {

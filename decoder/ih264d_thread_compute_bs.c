@@ -383,7 +383,7 @@ void ih264d_recon_deblk_slice(dec_struct_t *ps_dec, tfr_ctxt_t *ps_tfr_cxt)
     UWORD32 u1_mb_aff;
     UWORD16 u2_slice_num;
     UWORD32 u4_mb_num;
-    UWORD16 u2_first_mb_in_slice;
+    UWORD32 u2_first_mb_in_slice;
     UWORD32 i2_pic_wdin_mbs;
     UWORD32 u4_num_mbsleft, u4_end_of_row;
     UWORD8 u1_mbaff;

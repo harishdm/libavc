@@ -95,7 +95,7 @@ void isvcd_init_cabac_contexts(UWORD8 u1_slice_type, dec_struct_t *ps_dec);
 *    0 on Success and Error code otherwise
 **************************************************************************
 */
-WORD32 isvcd_parse_epslice(svc_dec_lyr_struct_t *ps_svc_lyr_dec, UWORD16 u2_first_mb_in_slice)
+WORD32 isvcd_parse_epslice(svc_dec_lyr_struct_t *ps_svc_lyr_dec, UWORD32 u2_first_mb_in_slice)
 {
     dec_struct_t *ps_dec = &ps_svc_lyr_dec->s_dec;
     WORD32 i_status = OK;
@@ -501,7 +501,7 @@ WORD32 isvcd_parse_epslice(svc_dec_lyr_struct_t *ps_svc_lyr_dec, UWORD16 u2_firs
 /*****************************************************************************/
 WORD32 isvcd_parse_inter_slice_data_cabac(svc_dec_lyr_struct_t *ps_svc_lyr_dec,
                                           dec_slice_params_t *ps_slice,
-                                          UWORD16 u2_first_mb_in_slice)
+                                          UWORD32 u2_first_mb_in_slice)
 {
     dec_struct_t *ps_dec = &ps_svc_lyr_dec->s_dec;
 
@@ -816,7 +816,7 @@ WORD32 isvcd_parse_inter_slice_data_cabac(svc_dec_lyr_struct_t *ps_svc_lyr_dec,
 
 WORD32 isvcd_parse_inter_slice_data_cavlc(svc_dec_lyr_struct_t *ps_svc_lyr_dec,
                                           dec_slice_params_t *ps_slice,
-                                          UWORD16 u2_first_mb_in_slice)
+                                          UWORD32 u2_first_mb_in_slice)
 {
     dec_struct_t *ps_dec = &ps_svc_lyr_dec->s_dec;
     UWORD32 uc_more_data_flag;
@@ -1150,7 +1150,7 @@ WORD32 isvcd_parse_inter_slice_data_cavlc(svc_dec_lyr_struct_t *ps_svc_lyr_dec,
 WORD32
 isvcd_parse_inter_slice_data_cabac_enh_lyr(svc_dec_lyr_struct_t *ps_svc_lyr_dec,
                                            dec_slice_params_t *ps_slice,
-                                           UWORD16 u2_first_mb_in_slice)
+                                           UWORD32 u2_first_mb_in_slice)
 {
     dec_struct_t *ps_dec = &ps_svc_lyr_dec->s_dec;
     UWORD32 uc_more_data_flag;
@@ -1565,7 +1565,7 @@ isvcd_parse_inter_slice_data_cabac_enh_lyr(svc_dec_lyr_struct_t *ps_svc_lyr_dec,
 
 WORD32 isvcd_parse_inter_slice_data_cavlc_enh_lyr(svc_dec_lyr_struct_t *ps_svc_lyr_dec,
                                                   dec_slice_params_t *ps_slice,
-                                                  UWORD16 u2_first_mb_in_slice)
+                                                  UWORD32 u2_first_mb_in_slice)
 {
     dec_struct_t *ps_dec = &ps_svc_lyr_dec->s_dec;
     UWORD32 uc_more_data_flag;
@@ -3180,7 +3180,7 @@ WORD32 isvcd_mark_err_slice_skip(svc_dec_lyr_struct_t *ps_svc_lyr_dec, WORD32 nu
 **************************************************************************
 */
 WORD32 isvcd_parse_interlayer_resamp_func_init(svc_dec_lyr_struct_t *ps_svc_lyr_dec,
-                                               UWORD16 u2_first_mb_in_slice)
+                                               UWORD32 u2_first_mb_in_slice)
 {
     dec_struct_t *ps_dec = &ps_svc_lyr_dec->s_dec;
     dec_slice_params_t *ps_slice = ps_dec->ps_cur_slice;
@@ -3227,7 +3227,7 @@ WORD32 isvcd_parse_interlayer_resamp_func_init(svc_dec_lyr_struct_t *ps_svc_lyr_
 *    0 on Success and Error code otherwise
 **************************************************************************
 */
-WORD32 isvcd_parse_pslice(svc_dec_lyr_struct_t *ps_svc_lyr_dec, UWORD16 u2_first_mb_in_slice)
+WORD32 isvcd_parse_pslice(svc_dec_lyr_struct_t *ps_svc_lyr_dec, UWORD32 u2_first_mb_in_slice)
 {
     dec_struct_t *ps_dec = &ps_svc_lyr_dec->s_dec;
     dec_pic_params_t *ps_pps = ps_dec->ps_cur_pps;
