@@ -2161,7 +2161,6 @@ WORD32 ih264d_video_decode(iv_obj_t *dec_hdl, void *pv_api_ip, void *pv_api_op)
     UWORD32 bytes_consumed = 0;
     UWORD32 cur_slice_is_nonref = 0;
     UWORD32 u4_next_is_aud;
-    UWORD32 u4_first_start_code_found = 0;
     WORD32 ret = 0,api_ret_value = IV_SUCCESS;
     WORD32 header_data_left = 0,frame_data_left = 0;
     UWORD8 *pu1_bitstrm_buf;
@@ -2575,45 +2574,13 @@ WORD32 ih264d_video_decode(iv_obj_t *dec_hdl, void *pv_api_ip, void *pv_api_op)
             {
                 memset(pu1_bitstrm_buf + buflen, 0, 8);
             }
-            u4_first_start_code_found = 1;
-
         }
         else
         {
             /*start code not found*/
-
-            if(u4_first_start_code_found == 0)
-            {
-                /*no start codes found in current process call*/
-
-                ps_dec->i4_error_code = ERROR_START_CODE_NOT_FOUND;
-                ps_dec_op->u4_error_code |= 1 << IVD_INSUFFICIENTDATA;
-
-                if(ps_dec->u4_pic_buf_got == 0)
-                {
-
-                    ih264d_fill_output_struct_from_context(ps_dec,
-                                                           ps_dec_op);
-
-                    ps_dec_op->u4_error_code = ps_dec->i4_error_code;
-                    ps_dec_op->u4_frame_decoded_flag = 0;
-
-                    return (IV_FAIL);
-                }
-                else
-                {
-                    ps_dec->u1_pic_decode_done = 1;
-                    continue;
-                }
-            }
-            else
-            {
-                /* a start code has already been found earlier in the same process call*/
-                frame_data_left = 0;
-                header_data_left = 0;
-                continue;
-            }
-
+            frame_data_left = 0;
+            header_data_left = 0;
+            continue;
         }
 
         ret = ih264d_parse_nal_unit(dec_hdl, ps_dec_op,
